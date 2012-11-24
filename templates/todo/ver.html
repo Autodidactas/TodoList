@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block contenido %}
+
+ <h2>{{ver.nombre}}</h2>
+  {% for obj in ver.todoarticulo_set.all  %}
+  	 {{obj.tarea}}<br>
+  	 {{obj.fecha}}
+  	 <hr>
+  {% empty %}
+  	 <p>No hay tareas para este proyecto</p>
+  {% endfor %}
+	
+{% endblock contenido %}
