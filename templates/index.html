@@ -2,6 +2,22 @@
 
 {% block contenido %}
 
+<form action="" method="POST">{%csrf_token%}
+
+	{{todo_form.as_p}}
+	<h4>Tareas o Articulos</h4>
+	
+	{{ todo_articulo_formset.management_form }}
+	
+	 {% for form in todo_articulo_formset.forms %}
+   
+      {{ form.as_p }}
+    
+    {% endfor %}
+    
+	<input type="submit" name="" value="Grabar" placeholder="">
+</form>
+
 {% for dato in todo %}
 	<div class="span4">
 		<h2>{{dato}}</h2>
@@ -10,13 +26,5 @@
 {% empty %}
 	<p>No hay datos</p>
 {% endfor %}
-
-
-<form action="" method="POST">{%csrf_token%}
-
-	{{todo_form.as_p}}
-
-	<input type="submit" name="" value="Grabar" placeholder="">
-</form>
 	
 {% endblock contenido %}
